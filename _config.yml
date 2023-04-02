@@ -651,6 +651,9 @@ post:
     # Options: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
     license: 'BY'
 
+    title:
+      enable: true
+
     # 显示作者
     author:
       enable: true
