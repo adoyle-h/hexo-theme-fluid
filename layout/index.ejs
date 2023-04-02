@@ -27,13 +27,6 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
         </a>
       </h2>
 
-      <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && !post.encrypt && post.content) %>
-      <a class="index-excerpt <%= index_img ? '' : 'index-excerpt__noimg' %>" href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
-        <div>
-          <%- strip_html(excerpt).substring(0, 200).trim().replace(/\n/g, ' ') %>
-        </div>
-      </a>
-
       <div class="index-btm post-metas">
         <% if (theme.index.post_meta.date) { %>
           <div class="post-meta mr-3">
@@ -58,6 +51,18 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
           </div>
         <% } %>
       </div>
+
+      <% var excerpt = post.description || post.excerpt || (theme.index.auto_excerpt.enable && !post.encrypt && post.content) %>
+      <div class="post-excerpt">
+        <%- excerpt || "" %>
+      </div>
+
+      <p class="post-more-link text-center">
+        <a href="<%= post_url %>" target="<%- theme.index.post_url_target %>">
+          <button type="button" class="btn btn-outline-secondary btn-sm w-100">阅读全文 »</button>
+        </a>
+      </p>
+
     </article>
   </div>
 <% }) %>
