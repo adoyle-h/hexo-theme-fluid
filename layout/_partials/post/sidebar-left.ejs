@@ -1,5 +1,5 @@
 <% if(theme.post.toc.enable && theme.post.toc.placement === 'left' && page.toc !== false){ %>
-  <aside class="sidebar" style="padding-left: 2rem; margin-right: -1rem">
+  <aside class="sidebar sidebar-toc">
     <%- partial('_partials/post/toc') %>
   </aside>
 <% } else if (theme.post.category_bar.enable && theme.post.category_bar.placement !== 'right' && !page.hide &&
