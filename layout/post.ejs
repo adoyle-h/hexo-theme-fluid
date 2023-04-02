@@ -13,6 +13,17 @@ page.banner_mask_alpha = page.banner_mask_alpha || theme.post.banner_mask_alpha
     <div class="col-lg-8 nopadding-x-md">
       <div id="board-ctn">
         <div id="board">
+          <% if (page.copyright) { %>
+          <div class="license-box license-article-top">
+            <div class="license-meta">
+              <div class="license-meta-item">
+                <%- page.copyright %>
+              </div>
+              <div class="license-icon iconfont"></div>
+            </div>
+          </div>
+          <% } %>
+
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none"><%= page.subtitle || page.title %></h1>
