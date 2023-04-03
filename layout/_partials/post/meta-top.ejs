@@ -1,12 +1,23 @@
 <% if (page.meta !== false) { %>
   <div class="mt-1">
     <% if (theme.post.meta.date.enable) { %>
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <div class="post-meta d-inline-flex flex-wrap justify-content-center align-items-center">
         <time datetime="<%= full_date(page.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
-          <%= full_date(page.date, theme.post.meta.date.format) %>
+          <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+          <%- __('post.created', date(page.date, theme.post.meta.date.format)) %>
         </time>
-      </span>
+
+        <% if (theme.post.updated && theme.post.updated.enable && compare_date(page.date, page.updated)) { %>
+          <span class="post-time-divider">&</span>
+          <time datetime="<%= full_date(page.updated, 'YYYY-MM-DD HH:mm') %>" pubdate>
+            <% if (theme.post.updated.relative) { %>
+              <%- __('post.updated', relative_date(page.updated, theme.post.updated.date_format)) %>
+            <% } else { %>
+              <%- __('post.updated', date(page.updated, theme.post.updated.date_format)) %>
+            <% } %>
+          </time>
+        <% } %>
+      </div>
     <% } %>
   </div>
 
