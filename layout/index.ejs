@@ -33,6 +33,12 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
             <i class="iconfont icon-date"></i>
             <time datetime="<%= full_date(post.date, 'YYYY-MM-DD HH:mm') %>" pubdate>
               <%- date(post.date, config.date_format) %>
+
+              <% if (theme.index.post_meta.update_date && post.updated && compare_date(post.date, post.updated)) { %>
+                  <time datetime="<%= full_date(post.updated, 'YYYY-MM-DD HH:mm') %>" pubdate>
+                    ~ <%- date(post.updated, config.date_format) %>
+                  </time>
+              <% } %>
             </time>
           </div>
         <% } %>

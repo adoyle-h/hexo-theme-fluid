@@ -539,6 +539,7 @@ index:
   # Meta information of post
   post_meta:
     date: true
+    update_date: true
     category: true
     tag: true
 
