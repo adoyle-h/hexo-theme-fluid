@@ -6,10 +6,11 @@
         Fluid.utils.loadComments('#disqus_thread', function() {
           Fluid.utils.createCssLink('<%= url_join(theme.static_prefix.disqusjs, 'disqusjs.css') %>');
           Fluid.utils.createScript('<%= url_join(theme.static_prefix.disqusjs, 'disqus.js') %>', function() {
-            new DisqusJS({
-              shortname: '<%= theme.disqus.shortname %>',
-              apikey: '<%= theme.disqus.apikey %>'
-            });
+            var DisqusJSConf = <%- JSON.stringify(theme.disqus) %>
+            var location = document.location
+            DisqusJSConf.identifier = DisqusJSConf.identifier || (location.origin + location.pathname)
+            DisqusJSConf.url = DisqusJSConf.url || (location.origin + location.pathname)
+            new DisqusJS(DisqusJSConf);
           });
         });
       </script>
