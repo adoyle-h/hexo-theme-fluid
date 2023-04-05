@@ -57,14 +57,14 @@
 
     <% if (page.categories && page.categories.length > 0) { %>
       <span class="post-meta mr-3">
-        <i class="iconfont icon-category"></i>
+        <i class="iconfont icon-category-fill"></i>
         <%- partial('_partials/category-chains', { categories: page.categories }) %>
       </span>
     <% } %>
 
     <% if (page.tags && page.tags.length > 0 ) { %>
       <span class="post-meta mr-3">
-        <i class="iconfont icon-tags"></i>
+        <i class="iconfont icon-tags-fill"></i>
         <% page.tags.each(function(tag) { %>
           <a href="<%= url_for(tag.path) %>" class="print-no-link">#<%- tag.name %></a>
         <% }) %>
