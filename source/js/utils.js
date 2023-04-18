@@ -146,7 +146,9 @@ Fluid.utils = {
     e.parentNode.insertBefore(l, e);
   },
 
-  loadComments: function(selector, loadFunc) {
+  loadComments: function(selector, loadFunc, noLazy) {
+    if (noLazy) return loadFunc();
+
     var ele = document.querySelector('#comments[lazyload]');
     if (ele) {
       var callback = function() {
@@ -186,7 +188,7 @@ Fluid.utils = {
       }
     };
     setTimeout(next, interval);
-  },
+  }
 
 };
 

@@ -8,8 +8,6 @@
     var remark_config = Object.assign(
       <%- JSON.stringify(theme.remark42 || {}) %>,
       {
-        url: '<%= url_for(page.path) %>',
-        page_title: '<%= page.title %>',
         theme: schema,
       }
     );
@@ -22,8 +20,7 @@
           s.defer = true;
           (d.head || d.body).appendChild(s);
         }
-      })(remark_config.components || ['embed']);
+      })(['counter']);
     }, true);
   </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
 <% } %>

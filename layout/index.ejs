@@ -42,6 +42,13 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
             </time>
           </div>
         <% } %>
+
+        <span class="post-meta mr-3">
+          <i class="iconfont icon-comment"></i>
+          <span class="remark42__counter" data-url="<%= post_url %>"></span>
+          <%- __('post.meta.comments') %>
+        </span>
+
         <% if (theme.index.post_meta.category && post.categories.length > 0) { %>
           <div class="post-meta mr-3">
             <i class="iconfont icon-category"></i>
@@ -73,4 +80,5 @@ page.banner_mask_alpha = theme.index.banner_mask_alpha
   </div>
 <% }) %>
 
+<%- partial('_partials/comments/remark42-counters') %>
 <%- partial('_partials/paginator') %>
