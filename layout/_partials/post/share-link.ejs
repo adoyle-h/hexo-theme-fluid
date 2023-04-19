@@ -1,0 +1,20 @@
+<div class="permalink">
+  <span></span>
+  <a href="javascript: copyShareLink();">
+    <button id="copy-link-btn" type="button" class="btn btn-outline-primary btn-sm">复制永久链接</button>
+  </a>
+  <input type="text" name="shortlink" value="<%= url %>" id="copy-link" readonly="">
+</div>
+
+<%
+import_script(`
+<script>
+  async function copyShareLink() {
+    const copyText = document.getElementById("copy-link");
+    await navigator.clipboard.writeText(copyText.value);
+    const btn = document.getElementById("copy-link-btn");
+    btn.innerHTML = "已复制"
+  }
+</script>
+`)
+%>
